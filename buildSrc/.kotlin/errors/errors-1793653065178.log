@@ -1,0 +1,14 @@
+kotlin version: 2.0.21
+error message: The daemon has terminated unexpectedly on startup attempt #1 with error code: 0. The daemon process output:
+    ... (21 more lines)
+    22. 	at java.logging/java.util.logging.LogManager.initializeGlobalHandlers(LogManager.java:2422)
+    23. 	at java.logging/java.util.logging.LogManager$RootLogger.accessCheckedHandlers(LogManager.java:2524)
+    24. 	at java.logging/java.util.logging.Logger.getHandlers(Logger.java:2093)
+    25. 	at java.logging/java.util.logging.Logger.log(Logger.java:980)
+    26. 	at java.logging/java.util.logging.Logger.doLog(Logger.java:1010)
+    27. 	at java.logging/java.util.logging.Logger.log(Logger.java:1033)
+    28. 	at java.logging/java.util.logging.Logger.info(Logger.java:1806)
+    29. 	at org.jetbrains.kotlin.daemon.KotlinCompileDaemonBase.mainImpl(KotlinCompileDaemon.kt:112)
+    30. 	at org.jetbrains.kotlin.daemon.KotlinCompileDaemon.main(KotlinCompileDaemon.kt:191)
+    31. Kotlin compile daemon is ready
+
