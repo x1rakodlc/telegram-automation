@@ -141,7 +141,9 @@ public class AutomationSettingsActivity extends BaseFragment {
         if (item.id == ID_ACCESSIBILITY_STATUS) {
             try {
                 Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                startActivity(intent);
+                if (getParentActivity() != null) {
+                    getParentActivity().startActivity(intent);
+                }
             } catch (Exception e) {
                 BulletinFactory.of(this).createSimpleBulletin(R.drawable.msg_bot, "Cannot open accessibility settings").show();
             }
@@ -216,10 +218,12 @@ public class AutomationSettingsActivity extends BaseFragment {
         builder.setTitle("Configure Chat Trigger");
 
         String currentMode = AutomationConfig.getChatTriggerMode(chatId);
-        CharSequence[] options = new CharSequence[]{"React to All Messages", "React to Keywords"};
-        int selected = "keywords".equalsIgnoreCase(currentMode) ? 1 : 0;
+        CharSequence[] options = new CharSequence[]{
+                "React to All Messages" + ("all".equalsIgnoreCase(currentMode) ? " (Active)" : ""),
+                "React to Keywords" + ("keywords".equalsIgnoreCase(currentMode) ? " (Active)" : "")
+        };
 
-        builder.setSingleChoiceItems(options, selected, (dialog, which) -> {
+        builder.setItems(options, (dialog, which) -> {
             dialog.dismiss();
             if (which == 0) {
                 AutomationConfig.setChatTriggerMode(chatId, "all");
