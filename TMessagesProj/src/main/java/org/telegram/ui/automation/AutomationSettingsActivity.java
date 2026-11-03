@@ -145,7 +145,7 @@ public class AutomationSettingsActivity extends BaseFragment {
                     getParentActivity().startActivity(intent);
                 }
             } catch (Exception e) {
-                BulletinFactory.of(this).createSimpleBulletin(R.drawable.msg_bot, "Cannot open accessibility settings").show();
+                BulletinFactory.of(this).createSimpleBulletin(R.raw.error, "Cannot open accessibility settings").show();
             }
             return;
         }
@@ -189,7 +189,7 @@ public class AutomationSettingsActivity extends BaseFragment {
             long chatId = (Long) item.object;
             AutomationConfig.removeChat(chatId);
             listView.adapter.update(true);
-            BulletinFactory.of(this).createSimpleBulletin(R.drawable.msg_delete, "Chat removed from automation").show();
+            BulletinFactory.of(this).createSimpleBulletin(R.raw.chats_infotip, "Chat removed from automation").show();
             return true;
         }
         return false;

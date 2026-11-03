@@ -3772,7 +3772,7 @@ public class ChatActivity extends BaseFragment implements
                     org.telegram.messenger.automation.AutomationConfig.toggleChat(dialog_id);
                     boolean nowSelected = org.telegram.messenger.automation.AutomationConfig.isChatSelected(dialog_id);
                     org.telegram.ui.Components.BulletinFactory.of(ChatActivity.this).createSimpleBulletin(
-                        R.drawable.msg_bot,
+                        R.raw.chats_infotip,
                         nowSelected ? "Chat added to Automation triggers" : "Chat removed from Automation triggers"
                     ).show();
                 } else if (id == copy) {
